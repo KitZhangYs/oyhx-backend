@@ -1,0 +1,10 @@
+db:
+  username: root
+  password: 123456
+  addr: localhost
+  port: 3306
+  dbname: oyhx
+
+mail:
+  addr: SJMbaiyang@163.com
+  password: baiyangmmc
