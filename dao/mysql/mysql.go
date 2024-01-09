@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	model "ini/model/user_struct"
 	"ini/services/parseyaml"
 )
 
@@ -23,7 +24,7 @@ func MysqlInit() {
 		return
 	}
 	DB = db
-	err = DB.AutoMigrate()
+	err = DB.AutoMigrate(&model.User{}, &model.UserCode{})
 	if err != nil {
 		panic(err)
 		return

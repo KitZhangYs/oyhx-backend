@@ -8,3 +8,11 @@ db:
 mail:
   addr: SJMbaiyang@163.com
   password: baiyangmmc
+  auth_code: YMHRSOKTQXNJWCQP
+  smtp_addr: smtp.163.com
+
+qiniu:
+  AccessKey: AYLZGKl9P3-lG6UUVlnMZ5k4Ucl_IeL8KgVvZJbC
+  SerectKey: _m8kedQV9ceroRCS3WCeP1wQHL6BzNNGpWQu8iIZ
+  Bucket: kitabs
+  ImgUrl: http://s67zkeycd.hn-bkt.clouddn.com/face/

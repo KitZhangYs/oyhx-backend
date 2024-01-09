@@ -12,5 +12,6 @@ type User struct {
 type UserCode struct {
 	gorm.Model
 	Username string `json:"username" gorm:"primarykey" gorm:"size:30"`
-	Code     int    `json:"code" gorm:"primarykey"`
+	MailAddr string `json:"mail_addr" gorm:"primarykey"`
+	Code     string `json:"code" gorm:"primarykey"`
 }

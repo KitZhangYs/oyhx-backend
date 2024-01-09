@@ -12,7 +12,7 @@ import (
 // @termsOfService http://swagger.io/terms/
 // @contact.name KitZhangYs
 // @contact.email SJMbaiyang@163.com
-// @host 127.0.0.1
+// @host 8.146.198.169
 // @BasePath /api/v1
 func main() {
 	mysql.MysqlInit()

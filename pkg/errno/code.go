@@ -19,4 +19,9 @@ var (
 	// user errors
 	ErrUserNotFound      = &Errno{Code: 40001, Message: "The user was not found."}
 	ErrPasswordIncorrect = &Errno{Code: 40002, Message: "The password was incorrect."}
+	ErrUsernameExist     = &Errno{Code: 40003, Message: "The username was exist."}
+
+	// mail errors
+	ErrMailUsed     = &Errno{Code: 50001, Message: "The mail was used."}
+	ErrMailNotExist = &Errno{Code: 50002, Message: "The mail was not exist."}
 )

@@ -1,0 +1,236 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "偶遇华夏API",
+        "title": "oyhx API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "KitZhangYs",
+            "email": "SJMbaiyang@163.com"
+        },
+        "version": "1.0"
+    },
+    "host": "8.146.198.169",
+    "basePath": "/api/v1",
+    "paths": {
+        "/api/v1/code_login": {
+            "post": {
+                "description": "通过邮箱验证码登录，验证码正确则获得token（注：该接口用于发送验证码之后）",
+                "tags": [
+                    "login"
+                ],
+                "summary": "邮箱验证码登录",
+                "parameters": [
+                    {
+                        "description": "登录结构体",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.LoginU2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\":\"登陆成功，获得token\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "description": "登录并获得token",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login"
+                ],
+                "summary": "账号密码登录",
+                "parameters": [
+                    {
+                        "description": "登录结构体",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.LoginU1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\":\"登陆成功，获得token\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/send_mail": {
+            "post": {
+                "description": "向用户提供的邮箱地址发送一个验证码",
+                "tags": [
+                    "login"
+                ],
+                "summary": "发送邮箱验证码",
+                "parameters": [
+                    {
+                        "description": "邮箱地址",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.SendMailAddr"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\":\"登陆成功，获得token\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/signup": {
+            "post": {
+                "description": "新用户进行注册",
+                "tags": [
+                    "signup"
+                ],
+                "summary": "新用户注册",
+                "parameters": [
+                    {
+                        "description": "用户信息",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.SignupUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\":\"注册成功\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"message\":\"Failure\"}",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "message": {}
+            }
+        },
+        "model.LoginU1": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.LoginU2": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "mail_addr": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.SendMailAddr": {
+            "type": "object",
+            "properties": {
+                "mail_addr": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.SignupUser": {
+            "type": "object",
+            "properties": {
+                "mail_addr": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
